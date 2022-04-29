@@ -20,10 +20,12 @@ package com.farawaybr.gatewayapi.jaxrs.server.config;
 
 import java.util.Set;
 
+import com.farawaybr.gatewayapi.jaxrs.server.GreetingResource;
 import com.farawaybr.gatewayapi.jaxrs.server.StockResourceImpl;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.ConstraintViolationExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.JsonbExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.ProcessingExceptionMapper;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.CorsResponseFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.EnvironmentContainerRequestFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.GatewayResponseContainerResponseFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.TokenContainerRequestFilter;
@@ -40,6 +42,7 @@ public class JaxrsActivator extends Application {
 		// TODO Auto-generated method stub
 		return Set.of(ConstraintViolationExceptionMapper.class, EnvironmentContainerRequestFilter.class,
 				GatewayResponseContainerResponseFilter.class, TokenContainerRequestFilter.class,
-				StockResourceImpl.class, JsonbExceptionMapper.class, ProcessingExceptionMapper.class,TokenResource.class);
+				StockResourceImpl.class, JsonbExceptionMapper.class, ProcessingExceptionMapper.class,
+				TokenResource.class, GreetingResource.class, CorsResponseFilter.class);
 	}
 }

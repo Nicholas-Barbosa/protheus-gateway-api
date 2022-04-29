@@ -114,4 +114,14 @@ public class StockResourceTest {
 			System.out.println(stockResponse.readEntity(String.class));
 		}
 	}
+	
+	@Test
+	@DisplayName("Get Access-Control-Allow-Origin response header")
+	public void shouldReturnCorsHeader() throws InterruptedException {
+		LOGGER.log(Level.INFO, " client: {0}, baseURL: {1}", new Object[] { client, base });
+		try (final Response stockResponse = this.stockTraget.request().accept(MediaType.APPLICATION_JSON)
+				.header(HttpHeaders.AUTHORIZATION, token).post(null)) {
+			assertEquals("*", stockResponse.getHeaderString("Access-Control-Allow-Origin"));
+		}
+	}
 }

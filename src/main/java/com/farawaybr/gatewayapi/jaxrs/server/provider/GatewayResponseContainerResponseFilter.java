@@ -27,6 +27,8 @@ public class GatewayResponseContainerResponseFilter implements ContainerResponse
 			SuperProtheusResponseDTO protheusResponse = (SuperProtheusResponseDTO) objectEntity;
 			responseContext.setEntity(GatewayResponseDTO.build(requestData.getEnvironment().name(),
 					requestData.getLatency(), protheusResponse));
+			protheusResponse = null;
+			objectEntity = null;
 		}
 	}
 

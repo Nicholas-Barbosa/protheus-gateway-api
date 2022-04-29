@@ -2,9 +2,11 @@ C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\ProductService.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ProtheusErrorDTO.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\AuthenticationRequestDTO.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\GreetingResource.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\PropertiesResolver.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\ProtheusApiUrlResolver.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ProductStockProtheusWrapperResponseDTO.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\provider\CorsResponseFilter.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\ProductServiceImpl.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\client\provider\IllegalResponseStatusException.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\provider\GatewayResponseContainerResponseFilter.java
@@ -19,6 +21,7 @@ C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\exceptionmapper\ConstraintViolationExceptionMapper.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\AuthenticationServiceImpl.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\config\JaxrsActivator.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\exceptionmapper\ProcessingExceptionMapper.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\client\JaxrsClientSource.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\RequestData.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\RefreshTokenRequestDTO.java
@@ -27,6 +30,8 @@ C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\client\provider\HttpStatusHandler.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\client\RestClient.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ConstraintViolationError.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\exceptionmapper\RuntimeExceptionMapper.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\provider\TokenContainerRequestFilter.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\SuperProtheusResponseDTO.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\ProtheusEnvironment.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\exceptionmapper\JsonbExceptionMapper.java

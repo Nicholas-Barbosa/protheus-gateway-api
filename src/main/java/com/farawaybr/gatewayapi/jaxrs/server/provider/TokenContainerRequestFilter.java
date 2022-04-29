@@ -24,12 +24,18 @@ public class TokenContainerRequestFilter implements ContainerRequestFilter {
 
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
+		if (isCorsProtocolRequest(requestContext))
+			return;
 		String requestPath = requestContext.getUriInfo().getAbsolutePath().getPath();
-		if (requestContext.getHeaderString(HttpHeaders.AUTHORIZATION) == null && !requestPath.contains("/token")
-				)
+
+		if (requestContext.getHeaderString(HttpHeaders.AUTHORIZATION) == null && !requestPath.contains("/token"))
 			requestContext.abortWith(Response.status(Status.UNAUTHORIZED)
 					.entity(new ErrorDTO(requestData.getEnvironment().name(), "Authorization header not present!", 401))
 					.type(MediaType.APPLICATION_JSON).build());
 	}
 
+	private boolean isCorsProtocolRequest(ContainerRequestContext requestContext) {
+		String fetchMode = requestContext.getHeaderString("Sec-Fetch-Mode");
+		return fetchMode != null && fetchMode.equals("cors");
+	}
 }
