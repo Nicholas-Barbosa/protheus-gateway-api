@@ -2,6 +2,7 @@ package com.farawaybr.gatewayapi.service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.farawaybr.gatewayapi.ProtheusEnvironment;
 import com.farawaybr.gatewayapi.jaxrs.client.RestClient;
@@ -23,12 +24,22 @@ public class ProductServiceImpl implements ProductService {
 	private ProtheusApiUrlResolver urlResolver;
 
 	@Override
-	public ProductStockProtheusWrapperResponseDTO findStock(List<ProductStockRequestDTO> products,
-			ProtheusEnvironment enviroment, String token) {
+	public ProductStockProtheusWrapperResponseDTO findStock(List<String> products, ProtheusEnvironment enviroment,
+			String token) {
 		// TODO Auto-generated method stub
-		return client.post(urlResolver.resolveUrl(enviroment).concat("/stock/search"),
-				ProductStockProtheusWrapperResponseDTO.class, null, null, products, MediaType.APPLICATION_JSON,
-				Map.of(HttpHeaders.AUTHORIZATION, "Bearer " + token.substring(7)));
+		switch (products.size()) {
+		case 0:
+			return client.get(urlResolver.resolveUrl(enviroment).concat("/stocksg"),
+					ProductStockProtheusWrapperResponseDTO.class, null, null, MediaType.APPLICATION_JSON,
+					Map.of(HttpHeaders.AUTHORIZATION, "Bearer " + token.substring(7)));
+
+		default:
+			return client.post(urlResolver.resolveUrl(enviroment).concat("/stock/search"),
+					ProductStockProtheusWrapperResponseDTO.class, null, null,
+					products.stream().map(ProductStockRequestDTO::toDto).collect(Collectors.toSet()),
+					MediaType.APPLICATION_JSON, Map.of(HttpHeaders.AUTHORIZATION, "Bearer " + token.substring(7)));
+		}
+
 	}
 
 }

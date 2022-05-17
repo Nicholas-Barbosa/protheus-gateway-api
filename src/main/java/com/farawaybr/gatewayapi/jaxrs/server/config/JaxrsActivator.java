@@ -20,16 +20,15 @@ package com.farawaybr.gatewayapi.jaxrs.server.config;
 
 import java.util.Set;
 
-import com.farawaybr.gatewayapi.jaxrs.server.GreetingResource;
 import com.farawaybr.gatewayapi.jaxrs.server.StockResourceImpl;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.ConstraintViolationExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.JsonbExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.ProcessingExceptionMapper;
-import com.farawaybr.gatewayapi.jaxrs.server.provider.CorsResponseFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.oauthserver.TokenResource;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.CorsFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.EnvironmentContainerRequestFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.GatewayResponseContainerResponseFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.TokenContainerRequestFilter;
-import com.farawaybr.gatewayapi.jaxrs.server.security.TokenResource;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
@@ -43,6 +42,6 @@ public class JaxrsActivator extends Application {
 		return Set.of(ConstraintViolationExceptionMapper.class, EnvironmentContainerRequestFilter.class,
 				GatewayResponseContainerResponseFilter.class, TokenContainerRequestFilter.class,
 				StockResourceImpl.class, JsonbExceptionMapper.class, ProcessingExceptionMapper.class,
-				TokenResource.class, GreetingResource.class, CorsResponseFilter.class);
+				TokenResource.class, CorsFilter.class);
 	}
 }

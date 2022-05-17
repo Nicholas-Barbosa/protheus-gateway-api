@@ -4,11 +4,10 @@ import java.util.List;
 
 import com.farawaybr.gatewayapi.ProtheusEnvironment;
 import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockProtheusWrapperResponseDTO;
-import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockRequestDTO;
 
 public interface ProductService {
 
-	ProductStockProtheusWrapperResponseDTO findStock(List<ProductStockRequestDTO> products,
+	ProductStockProtheusWrapperResponseDTO findStock(List<String> products,
 			ProtheusEnvironment enviroment,String token);
 
 }

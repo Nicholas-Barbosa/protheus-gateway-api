@@ -16,8 +16,19 @@ public class AuthenticationRequestDTO implements Serializable {
 
 	@NotBlank(message = "username cannot be null or blank!")
 	private String username;
-	@NotBlank(message  ="password cannot be null or blank!")
+	@NotBlank(message = "password cannot be null or blank!")
 	private String password;
+
+	public AuthenticationRequestDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public AuthenticationRequestDTO(@NotBlank(message = "username cannot be null or blank!") String username,
+			@NotBlank(message = "password cannot be null or blank!") String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 
 	public String getUsername() {
 		return username;

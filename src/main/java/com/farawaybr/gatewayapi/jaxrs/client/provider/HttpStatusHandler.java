@@ -33,7 +33,7 @@ public class HttpStatusHandler implements ClientResponseFilter {
 	@Override
 	public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
 //		String environment = (String) requestContext.getHeaders().get("environment").get(0);
-		String environment = requestData.getEnvironment().name();
+		String environment = requestData.getEnvironment() != null ? requestData.getEnvironment().name() : null;
 		switch (responseContext.getStatus()) {
 		case 404:
 			String responseTxt = readResponse(responseContext.getEntityStream());
@@ -42,7 +42,8 @@ public class HttpStatusHandler implements ClientResponseFilter {
 			throw new NotFoundException(responseNotFound);
 		case 500:
 			throw new InternalServerErrorException(Response.status(500)
-					.entity(new ProtheusErrorDTO(environment, readResponse(responseContext.getEntityStream()), 500)).build());
+					.entity(new ProtheusErrorDTO(environment, readResponse(responseContext.getEntityStream()), 500))
+					.build());
 		case 403:
 			throw new ForbiddenException();
 		case 401:
@@ -55,7 +56,8 @@ public class HttpStatusHandler implements ClientResponseFilter {
 			throw new ClientErrorException(response);
 		case 400:
 			throw new BadRequestException(Response.status(400)
-					.entity(new ProtheusErrorDTO(environment, readResponse(responseContext.getEntityStream()), 400)).build());
+					.entity(new ProtheusErrorDTO(environment, readResponse(responseContext.getEntityStream()), 400))
+					.build());
 		case -1:
 			throw new IllegalResponseStatusException();
 

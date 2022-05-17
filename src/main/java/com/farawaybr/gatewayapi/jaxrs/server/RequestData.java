@@ -27,7 +27,8 @@ public class RequestData {
 	}
 
 	public long getLatency() {
-		latency = latency == 0 ? System.currentTimeMillis() - initialRequestTime : latency;
+		latency = latency == 0 ? initialRequestTime != 0 ? System.currentTimeMillis() - initialRequestTime : 0
+				: latency;
 		return latency;
 	}
 }

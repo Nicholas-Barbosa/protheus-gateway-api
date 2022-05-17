@@ -2,6 +2,7 @@ package com.farawaybr.gatewayapi.jaxrs.server.provider;
 
 import java.io.IOException;
 
+import com.farawaybr.gatewayapi.ProtheusEnvironment;
 import com.farawaybr.gatewayapi.jaxrs.dto.GatewayResponseDTO;
 import com.farawaybr.gatewayapi.jaxrs.dto.SuperProtheusResponseDTO;
 import com.farawaybr.gatewayapi.jaxrs.server.RequestData;
@@ -25,7 +26,8 @@ public class GatewayResponseContainerResponseFilter implements ContainerResponse
 		Object objectEntity = responseContext.getEntity();
 		if (objectEntity instanceof SuperProtheusResponseDTO) {
 			SuperProtheusResponseDTO protheusResponse = (SuperProtheusResponseDTO) objectEntity;
-			responseContext.setEntity(GatewayResponseDTO.build(requestData.getEnvironment().name(),
+			ProtheusEnvironment pEnvironment = requestData.getEnvironment();
+			responseContext.setEntity(GatewayResponseDTO.build(pEnvironment != null ? pEnvironment.name() : null,
 					requestData.getLatency(), protheusResponse));
 			protheusResponse = null;
 			objectEntity = null;

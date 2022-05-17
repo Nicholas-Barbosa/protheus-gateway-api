@@ -2,40 +2,33 @@ package com.farawaybr.gatewayapi.jaxrs.client;
 
 import java.util.Map;
 
+import com.farawaybr.gatewayapi.jaxrs.client.JaxrsRequestData.JaxrsRequestDataBuilder;
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.client.Entity;
-import jakarta.ws.rs.client.WebTarget;
-import jakarta.ws.rs.client.Invocation.Builder;
 
 @ApplicationScoped
 public class RestClientImpl implements RestClient {
 
 	@Inject
-	private JaxrsClientSource client;
+	private JaxrsClientRequester requester;
 
 	@Override
 	public <T> T get(String url, Class<T> responseType, Map<String, Object> queryParams, Map<String, Object> pathParams,
-			String media, Map<String, Object> headers) {
+			String mediaType, Map<String, Object> headers) {
 		// TODO Auto-generated method stub
-		return null;
+		return requester.request(JaxrsRequestDataBuilder.getInstance().url(url).queryParams(queryParams)
+				.pathParams(pathParams).method("GET").mediaType(mediaType).headers(headers).build(), responseType);
+
 	}
 
 	@Override
 	public <T, E> T post(String url, Class<T> responseType, Map<String, Object> queryParams,
 			Map<String, Object> pathParams, E requestBody, String mediaType, Map<String, Object> headers) {
-		WebTarget target = client.getClient().target(url);
-
-		if (queryParams != null)
-			for (String key : queryParams.keySet())
-				target = target.queryParam(key, queryParams.get(key));
-
-		if (pathParams != null)
-			target = target.resolveTemplates(pathParams);
-		Builder request = target.request(mediaType);
-		if (headers != null)
-			headers.forEach((k, v) -> request.header(k, v));
-		return request.post(Entity.json(requestBody), responseType);
+		return requester.request(
+				JaxrsRequestDataBuilder.getInstance().url(url).requestBody(requestBody).queryParams(queryParams)
+						.pathParams(pathParams).method("POST").mediaType(mediaType).headers(headers).build(),
+				responseType);
 	}
 
 }

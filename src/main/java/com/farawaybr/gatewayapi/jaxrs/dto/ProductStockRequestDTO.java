@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 public class ProductStockRequestDTO implements Serializable {
 
@@ -15,6 +14,10 @@ public class ProductStockRequestDTO implements Serializable {
 
 	@NotBlank(message = "product attribute cannot be null or blank!")
 	public String product;
+
+	public ProductStockRequestDTO(String product2) {
+		this.product = product2;
+	}
 
 	public String getProduct() {
 		return product;
@@ -55,4 +58,7 @@ public class ProductStockRequestDTO implements Serializable {
 		return true;
 	}
 
+	public static ProductStockRequestDTO toDto(String product) {
+		return new ProductStockRequestDTO(product);
+	}
 }

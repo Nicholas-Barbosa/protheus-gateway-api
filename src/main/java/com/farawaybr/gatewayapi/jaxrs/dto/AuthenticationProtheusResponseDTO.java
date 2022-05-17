@@ -1,5 +1,8 @@
 package com.farawaybr.gatewayapi.jaxrs.dto;
 
+import com.farawaybr.gatewayapi.domain.AccessToken;
+
+import jakarta.faces.webapp.FacesServlet;
 import jakarta.json.bind.annotation.JsonbProperty;
 
 public class AuthenticationProtheusResponseDTO extends SuperProtheusResponseDTO {
@@ -14,6 +17,20 @@ public class AuthenticationProtheusResponseDTO extends SuperProtheusResponseDTO 
 	private String tokenType;
 	@JsonbProperty("expires_in")
 	private int expiresIn;
+
+	public AuthenticationProtheusResponseDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public AuthenticationProtheusResponseDTO(String accessToken, String refreshToken, String scope, String tokenType,
+			int expiresIn) {
+		super();
+		this.accessToken = accessToken;
+		this.refreshToken = refreshToken;
+		this.scope = scope;
+		this.tokenType = tokenType;
+		this.expiresIn = expiresIn;
+	}
 
 	public String getAccessToken() {
 		return accessToken;
@@ -53,6 +70,17 @@ public class AuthenticationProtheusResponseDTO extends SuperProtheusResponseDTO 
 
 	public void setExpiresIn(int expiresIn) {
 		this.expiresIn = expiresIn;
+	}
+
+	public AccessToken toAccessToken() {
+		// TODO Auto-generated method stub
+		return new AccessToken(accessToken, refreshToken, scope, tokenType, expiresIn);
+	}
+
+	public static AuthenticationProtheusResponseDTO fromAccessTokeb(AccessToken accessToken) {
+		// TODO Auto-generated method stub
+		return new AuthenticationProtheusResponseDTO(accessToken.getAccessToken(), accessToken.getRefreshToken(),
+				accessToken.getScope(), accessToken.getTokenType(), accessToken.getExpiresIn());
 	}
 
 }

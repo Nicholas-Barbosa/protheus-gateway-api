@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.farawaybr.gatewayapi.jaxrs.dto.ErrorDTO;
 import com.farawaybr.gatewayapi.jaxrs.server.RequestData;
+import com.farawaybr.gatewayapi.jaxrs.server.oauthserver.TokenResource;
 
 import jakarta.annotation.Priority;
 import jakarta.inject.Inject;
@@ -26,9 +27,10 @@ public class TokenContainerRequestFilter implements ContainerRequestFilter {
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 		if (isCorsProtocolRequest(requestContext))
 			return;
-		String requestPath = requestContext.getUriInfo().getAbsolutePath().getPath();
+		boolean isTokenRquest = requestContext.getUriInfo().getMatchedResources().stream()
+				.anyMatch(resource -> resource instanceof TokenResource);
 
-		if (requestContext.getHeaderString(HttpHeaders.AUTHORIZATION) == null && !requestPath.contains("/token"))
+		if (requestContext.getHeaderString(HttpHeaders.AUTHORIZATION) == null && !isTokenRquest)
 			requestContext.abortWith(Response.status(Status.UNAUTHORIZED)
 					.entity(new ErrorDTO(requestData.getEnvironment().name(), "Authorization header not present!", 401))
 					.type(MediaType.APPLICATION_JSON).build());

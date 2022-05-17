@@ -56,6 +56,7 @@ public class StockResourceTest {
 
 	private final String token = "BEARER test_token";
 
+	
 	@Deployment(testable = false)
 	public static WebArchive createDeployment() {
 		return ShrinkWrap.create(WebArchive.class)

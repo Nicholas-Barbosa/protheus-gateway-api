@@ -26,6 +26,9 @@ public class EnvironmentContainerRequestFilter implements ContainerRequestFilter
 
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
+		if (requestContext.getUriInfo().getMatchedURIs().stream().anyMatch(uri -> uri.equalsIgnoreCase("token/code")))
+			return;
+
 		List<String> environments = requestContext.getUriInfo().getQueryParameters().get("environment");
 		String environment = environments == null ? null : environments.get(0);
 
