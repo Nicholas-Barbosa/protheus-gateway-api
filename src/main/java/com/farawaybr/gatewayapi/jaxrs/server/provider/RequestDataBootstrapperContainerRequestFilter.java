@@ -20,7 +20,7 @@ import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.ext.Provider;
 
 @Provider
-@Priority(0)
+@Priority(1)
 public class RequestDataBootstrapperContainerRequestFilter implements ContainerRequestFilter {
 
 	@Inject
@@ -46,7 +46,6 @@ public class RequestDataBootstrapperContainerRequestFilter implements ContainerR
 		requestData.setEnvironment(ProtheusEnvironment.valueOf(environment.strip().toUpperCase()));
 		requestData.setInitialRequestTime(System.currentTimeMillis());
 		requestData.setRemoteAddr(request.getRemoteAddr());
-		System.out.println("remote addr " + requestData.getRemoteAddr());
 	}
 
 }

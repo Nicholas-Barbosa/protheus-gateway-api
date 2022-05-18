@@ -17,7 +17,7 @@ import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.ext.Provider;
 
 @Provider
-@Priority(1)
+@Priority(2)
 public class TokenContainerRequestFilter implements ContainerRequestFilter {
 
 	@Inject
@@ -25,8 +25,6 @@ public class TokenContainerRequestFilter implements ContainerRequestFilter {
 
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
-		if (isCorsProtocolRequest(requestContext))
-			return;
 		boolean isTokenRquest = requestContext.getUriInfo().getMatchedResources().stream()
 				.anyMatch(resource -> resource instanceof TokenResource);
 
@@ -36,8 +34,4 @@ public class TokenContainerRequestFilter implements ContainerRequestFilter {
 					.type(MediaType.APPLICATION_JSON).build());
 	}
 
-	private boolean isCorsProtocolRequest(ContainerRequestContext requestContext) {
-		String fetchMode = requestContext.getHeaderString("Sec-Fetch-Mode");
-		return fetchMode != null && fetchMode.equals("cors");
-	}
 }
