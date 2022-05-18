@@ -9,6 +9,7 @@ public class RequestData {
 
 	private ProtheusEnvironment environment;
 	private long initialRequestTime, latency;
+	private String remoteAddr;
 
 	public ProtheusEnvironment getEnvironment() {
 		return environment;
@@ -30,5 +31,13 @@ public class RequestData {
 		latency = latency == 0 ? initialRequestTime != 0 ? System.currentTimeMillis() - initialRequestTime : 0
 				: latency;
 		return latency;
+	}
+
+	public String getRemoteAddr() {
+		return remoteAddr;
+	}
+
+	public void setRemoteAddr(String remoteAddr) {
+		this.remoteAddr = remoteAddr;
 	}
 }

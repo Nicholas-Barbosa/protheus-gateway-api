@@ -5,11 +5,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ScheduledExecutorService;
 
 import com.farawaybr.gatewayapi.domain.AuthorizationCode;
 
-import jakarta.annotation.Resource;
 import jakarta.ejb.Schedule;
 import jakarta.ejb.Singleton;
 
@@ -17,9 +15,6 @@ import jakarta.ejb.Singleton;
 public class MemoryAuthorizationCodeRepository implements AuthorizationCodeRepository {
 
 	private final Map<UUID, AuthorizationCode> authorizationCodes = new ConcurrentHashMap<>();
-
-	@Resource
-	private ScheduledExecutorService executor;
 
 	@Override
 	public Optional<AuthorizationCode> getToken(UUID authorizationCode) {

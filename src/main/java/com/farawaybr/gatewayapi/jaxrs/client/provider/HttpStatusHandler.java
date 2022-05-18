@@ -36,6 +36,7 @@ public class HttpStatusHandler implements ClientResponseFilter {
 		String environment = requestData.getEnvironment() != null ? requestData.getEnvironment().name() : null;
 		switch (responseContext.getStatus()) {
 		case 404:
+			System.out.println("404!");
 			String responseTxt = readResponse(responseContext.getEntityStream());
 			Response responseNotFound = Response.status(404).entity(new ProtheusErrorDTO(environment, responseTxt, 404))
 					.build();

@@ -6,21 +6,23 @@ import java.time.ZonedDateTime;
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbPropertyOrder;
 
-@JsonbPropertyOrder({ "environment", "date", "protheusLatency" })
+@JsonbPropertyOrder({ "environment", "date", "remoteAddr", "protheusLatency" })
 public class GatewayResponseDTO implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2224938028164999130L;
-	private String environment;
+	private String environment, remoteAddr;
 	private Long protheusLatency;
 	private ZonedDateTime date;
 	private SuperProtheusResponseDTO protheusResponse;
 
-	public GatewayResponseDTO(String environment, Long protheusLatency, SuperProtheusResponseDTO protheusResponse) {
+	public GatewayResponseDTO(String environment, String remoteAddr, Long protheusLatency,
+			SuperProtheusResponseDTO protheusResponse) {
 		super();
 		this.environment = environment;
+		this.remoteAddr = remoteAddr;
 		this.protheusLatency = protheusLatency;
 		this.protheusResponse = protheusResponse;
 		this.date = ZonedDateTime.now();
@@ -28,6 +30,11 @@ public class GatewayResponseDTO implements Serializable {
 
 	public String getEnvironment() {
 		return environment;
+	}
+
+	@JsonbProperty("requested_by")
+	public String getRemoteAddr() {
+		return remoteAddr;
 	}
 
 	@JsonbProperty("protheus_latency_ms")
@@ -45,8 +52,8 @@ public class GatewayResponseDTO implements Serializable {
 		return protheusResponse;
 	}
 
-	public static GatewayResponseDTO build(String environment, Long protheusLatency,
+	public static GatewayResponseDTO build(String environment, String remoteAddr, Long protheusLatency,
 			SuperProtheusResponseDTO response) {
-		return new GatewayResponseDTO(environment, protheusLatency, response);
+		return new GatewayResponseDTO(environment, remoteAddr, protheusLatency, response);
 	}
 }

@@ -30,7 +30,6 @@ public class StockResourceImpl {
 	@Produces("application/json")
 	public Response findStock(@QueryParam("environment") String environment, @HeaderParam("Authorization") String token,
 			@QueryParam("products") List<String> products) {
-		System.out.println("products " +products.size());
 		ProductStockProtheusWrapperResponseDTO protheusResponse = productService.findStock(products,
 				ProtheusEnvironment.valueOf(environment.toUpperCase()), token);
 		return Response.ok().entity(protheusResponse).build();

@@ -26,8 +26,8 @@ import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.JsonbExceptionMappe
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.ProcessingExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.oauthserver.TokenResource;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.CorsFilter;
-import com.farawaybr.gatewayapi.jaxrs.server.provider.EnvironmentContainerRequestFilter;
-import com.farawaybr.gatewayapi.jaxrs.server.provider.GatewayResponseContainerResponseFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.RequestDataBootstrapperContainerRequestFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.GatewayJsonWrapperResponseContainerResponseFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.TokenContainerRequestFilter;
 
 import jakarta.ws.rs.ApplicationPath;
@@ -39,8 +39,8 @@ public class JaxrsActivator extends Application {
 	@Override
 	public Set<Class<?>> getClasses() {
 		// TODO Auto-generated method stub
-		return Set.of(ConstraintViolationExceptionMapper.class, EnvironmentContainerRequestFilter.class,
-				GatewayResponseContainerResponseFilter.class, TokenContainerRequestFilter.class,
+		return Set.of(ConstraintViolationExceptionMapper.class, RequestDataBootstrapperContainerRequestFilter.class,
+				GatewayJsonWrapperResponseContainerResponseFilter.class, TokenContainerRequestFilter.class,
 				StockResourceImpl.class, JsonbExceptionMapper.class, ProcessingExceptionMapper.class,
 				TokenResource.class, CorsFilter.class);
 	}

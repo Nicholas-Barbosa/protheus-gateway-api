@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
 <head>
-<!-- Design by foolishdeveloper.com -->
-<title>Gateway API - OAuth Server Login</title>
+<title>OAuth Server -  Login</title>
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="stylesheet"
