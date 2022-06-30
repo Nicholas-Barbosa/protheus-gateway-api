@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import com.farawaybr.gatewayapi.jaxrs.dto.ErrorDTO;
 import com.farawaybr.gatewayapi.jaxrs.dto.ProtheusErrorDTO;
 import com.farawaybr.gatewayapi.jaxrs.server.RequestData;
 import com.farawaybr.gatewayapi.jaxrs.server.ResponseInfo;
@@ -54,7 +53,7 @@ public class HttpStatusHandler implements ClientResponseFilter {
 			throw new ForbiddenException();
 		case 401:
 			throw new NotAuthorizedException(Response.status(401)
-					.entity(new ErrorDTO(environment, readResponse(responseContext.getEntityStream()), 401)).build());
+					.entity(new ProtheusErrorDTO(environment, readResponse(responseContext.getEntityStream()), 401)).build());
 		case 409:
 			Response response = Response.status(409)
 					.entity(new ProtheusErrorDTO(environment, readResponse(responseContext.getEntityStream()), 409))
