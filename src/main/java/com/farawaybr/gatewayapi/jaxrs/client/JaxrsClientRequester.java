@@ -17,12 +17,12 @@ public class JaxrsClientRequester {
 
 	public <T> T request(JaxrsRequestData data, Class<T> responseType) {
 		WebTarget target = getTarget(data.getUrl(), data.getQueryParams(), data.getPathParams());
-
 		Builder request = target.request(data.getMediaType());
 		resolveHeaders(data.getHeaders(), request);
 		final Response response = request.method(data.getMethod(),
 				Entity.entity(data.getRequestBody(), data.getMediaType()));
 		try (response) {
+			data = null;
 			return response.readEntity(responseType);
 		}
 
@@ -30,6 +30,7 @@ public class JaxrsClientRequester {
 
 	private WebTarget getTarget(String url, Map<String, Object> queryParams, Map<String, Object> pathParams) {
 		WebTarget target = clientSource.getClient().target(url);
+		url = null;
 		if (queryParams != null)
 			for (String key : queryParams.keySet())
 				target = target.queryParam(key, queryParams.get(key));

@@ -2,10 +2,9 @@ package com.farawaybr.gatewayapi.jaxrs.dto;
 
 import com.farawaybr.gatewayapi.domain.AccessToken;
 
-import jakarta.faces.webapp.FacesServlet;
 import jakarta.json.bind.annotation.JsonbProperty;
 
-public class AuthenticationProtheusResponseDTO extends SuperProtheusResponseDTO {
+public class AuthenticationProtheusResponseDTO extends ProtheusResponse {
 
 	@JsonbProperty("access_token")
 	private String accessToken;

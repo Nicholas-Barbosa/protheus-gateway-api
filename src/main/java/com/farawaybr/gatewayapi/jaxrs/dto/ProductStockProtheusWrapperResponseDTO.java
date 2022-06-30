@@ -5,7 +5,7 @@ import java.util.Set;
 
 import jakarta.json.bind.annotation.JsonbProperty;
 
-public class ProductStockProtheusWrapperResponseDTO extends SuperProtheusResponseDTO {
+public class ProductStockProtheusWrapperResponseDTO extends ProtheusResponse {
 
 	private Set<ProductStockResponseDTO> stock;
 
@@ -63,6 +63,7 @@ public class ProductStockProtheusWrapperResponseDTO extends SuperProtheusRespons
 			this.type = type;
 		}
 
+		@JsonbProperty("description")
 		public String getDescription() {
 			return description;
 		}

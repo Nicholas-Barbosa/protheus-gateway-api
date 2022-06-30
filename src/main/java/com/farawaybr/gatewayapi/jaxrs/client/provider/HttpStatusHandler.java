@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import com.farawaybr.gatewayapi.jaxrs.dto.ErrorDTO;
 import com.farawaybr.gatewayapi.jaxrs.dto.ProtheusErrorDTO;
 import com.farawaybr.gatewayapi.jaxrs.server.RequestData;
+import com.farawaybr.gatewayapi.jaxrs.server.ResponseInfo;
 
 import jakarta.annotation.Priority;
 import jakarta.inject.Inject;
@@ -30,13 +31,17 @@ public class HttpStatusHandler implements ClientResponseFilter {
 	@Inject
 	private RequestData requestData;
 
+	@Inject
+	private ResponseInfo responseInfo;
+
 	@Override
 	public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
 //		String environment = (String) requestContext.getHeaders().get("environment").get(0);
 		String environment = requestData.getEnvironment() != null ? requestData.getEnvironment().name() : null;
+		responseInfo.setProtheusResponse(true);
 		switch (responseContext.getStatus()) {
 		case 404:
-			System.out.println("404!");
+
 			String responseTxt = readResponse(responseContext.getEntityStream());
 			Response responseNotFound = Response.status(404).entity(new ProtheusErrorDTO(environment, responseTxt, 404))
 					.build();

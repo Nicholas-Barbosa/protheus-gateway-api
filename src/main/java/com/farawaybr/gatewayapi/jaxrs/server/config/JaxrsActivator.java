@@ -20,16 +20,20 @@ package com.farawaybr.gatewayapi.jaxrs.server.config;
 
 import java.util.Set;
 
-import com.farawaybr.gatewayapi.jaxrs.server.StockResourceImpl;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.ConstraintViolationExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.JsonbExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.ProcessingExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.oauthserver.TokenResource;
-import com.farawaybr.gatewayapi.jaxrs.server.provider.CorsResponseFilter;
-import com.farawaybr.gatewayapi.jaxrs.server.provider.GatewayJsonWrapperResponseContainerResponseFilter;
-import com.farawaybr.gatewayapi.jaxrs.server.provider.PreflightContainerRequestFilter;
-import com.farawaybr.gatewayapi.jaxrs.server.provider.RequestDataBootstrapperContainerRequestFilter;
-import com.farawaybr.gatewayapi.jaxrs.server.provider.TokenContainerRequestFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter.PreflightContainerRequestFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter.RequestDataBootstrapperContainerRequestFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter.TokenContainerRequestFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.responsefilter.CorsResponseFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.responsefilter.GatewayJsonWrapperResponseContainerResponseFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.resources.DanfeResource;
+import com.farawaybr.gatewayapi.jaxrs.server.resources.OrderResource;
+import com.farawaybr.gatewayapi.jaxrs.server.resources.RepresentativeResource;
+import com.farawaybr.gatewayapi.jaxrs.server.resources.RequestResource;
+import com.farawaybr.gatewayapi.jaxrs.server.resources.StockResource;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
@@ -42,7 +46,8 @@ public class JaxrsActivator extends Application {
 		// TODO Auto-generated method stub
 		return Set.of(ConstraintViolationExceptionMapper.class, RequestDataBootstrapperContainerRequestFilter.class,
 				GatewayJsonWrapperResponseContainerResponseFilter.class, TokenContainerRequestFilter.class,
-				StockResourceImpl.class, JsonbExceptionMapper.class, ProcessingExceptionMapper.class,
-				TokenResource.class, PreflightContainerRequestFilter.class, CorsResponseFilter.class);
+				StockResource.class, JsonbExceptionMapper.class, ProcessingExceptionMapper.class, TokenResource.class,
+				PreflightContainerRequestFilter.class, CorsResponseFilter.class, RepresentativeResource.class,
+				OrderResource.class, RequestResource.class, DanfeResource.class);
 	}
 }

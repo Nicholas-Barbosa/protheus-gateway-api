@@ -16,10 +16,10 @@ public class GatewayResponseDTO implements Serializable {
 	private String environment, remoteAddr;
 	private Long protheusLatency;
 	private ZonedDateTime date;
-	private SuperProtheusResponseDTO protheusResponse;
+	private Object protheusResponse;
 
 	public GatewayResponseDTO(String environment, String remoteAddr, Long protheusLatency,
-			SuperProtheusResponseDTO protheusResponse) {
+			Object protheusResponse) {
 		super();
 		this.environment = environment;
 		this.remoteAddr = remoteAddr;
@@ -47,13 +47,13 @@ public class GatewayResponseDTO implements Serializable {
 		return date;
 	}
 
-	@JsonbProperty("protheus_data")
-	public SuperProtheusResponseDTO getProtheusResponse() {
+	@JsonbProperty("gateway_response")
+	public Object getProtheusResponse() {
 		return protheusResponse;
 	}
 
 	public static GatewayResponseDTO build(String environment, String remoteAddr, Long protheusLatency,
-			SuperProtheusResponseDTO response) {
+			Object response) {
 		return new GatewayResponseDTO(environment, remoteAddr, protheusLatency, response);
 	}
 }
