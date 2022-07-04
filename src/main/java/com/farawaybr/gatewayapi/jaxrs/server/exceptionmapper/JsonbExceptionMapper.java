@@ -26,7 +26,7 @@ public class JsonbExceptionMapper implements ExceptionMapper<JsonbException> {
 		if (responseInfo.isProtheusResponse()) {
 			exception.printStackTrace();
 			return Response.status(500).entity(new ProtheusErrorDTO(requestData.getEnvironment().name(),
-					"Error in protheus server to deserialize JSON value into type expected type! ", 500)).build();
+					"Error in protheus server to deserialize JSON value into type expected type!", 500)).build();
 		}
 
 		return Response.status(400).entity(new ErrorDTO(requestData.getEnvironment().name(),

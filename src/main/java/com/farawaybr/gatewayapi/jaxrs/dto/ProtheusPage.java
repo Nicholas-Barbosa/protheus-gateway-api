@@ -14,13 +14,20 @@ public abstract class ProtheusPage<T> extends ProtheusResponse{
 	private int totalPages;
 	@JsonbProperty("total_items")
 	private int totalItems;
-	protected List<T> content;
+	private List<T> content;
+
+	
+	
+	public ProtheusPage(List<T> content) {
+		super();
+		this.content = content;
+	}
+
 
 	public List<T> getContent() {
 		return content;
 	}
 
-	public abstract void setContent(List<T> content);
 
 	public int getPage() {
 		return page;

@@ -29,6 +29,7 @@ import com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter.RequestDataB
 import com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter.TokenContainerRequestFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.responsefilter.CorsResponseFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.responsefilter.GatewayJsonWrapperResponseContainerResponseFilter;
+import com.farawaybr.gatewayapi.jaxrs.server.resources.BillResource;
 import com.farawaybr.gatewayapi.jaxrs.server.resources.DanfeResource;
 import com.farawaybr.gatewayapi.jaxrs.server.resources.OrderResource;
 import com.farawaybr.gatewayapi.jaxrs.server.resources.RepresentativeResource;
@@ -48,6 +49,6 @@ public class JaxrsActivator extends Application {
 				GatewayJsonWrapperResponseContainerResponseFilter.class, TokenContainerRequestFilter.class,
 				StockResource.class, JsonbExceptionMapper.class, ProcessingExceptionMapper.class, TokenResource.class,
 				PreflightContainerRequestFilter.class, CorsResponseFilter.class, RepresentativeResource.class,
-				OrderResource.class, RequestResource.class, DanfeResource.class);
+				OrderResource.class, RequestResource.class, DanfeResource.class,BillResource.class);
 	}
 }

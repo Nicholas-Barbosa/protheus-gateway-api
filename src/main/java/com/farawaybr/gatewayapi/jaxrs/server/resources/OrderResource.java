@@ -6,6 +6,7 @@ import com.farawaybr.gatewayapi.service.OrderService;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -31,8 +32,8 @@ public class OrderResource {
 
 	@GET
 	@Produces("application/json")
-	public Response findAll(@QueryParam("page") int page, @QueryParam("pageSize") int pageSize,
+	public Response findAll(@QueryParam("page") int page, @DefaultValue("10") @QueryParam("pageSize") int pageSize,
 			@QueryParam("searchKey") String searchKey) {
-		return Response.status(200).entity(service.find(page, pageSize,searchKey)).build();
+		return Response.status(200).entity(service.find(page, pageSize, searchKey)).build();
 	}
 }
