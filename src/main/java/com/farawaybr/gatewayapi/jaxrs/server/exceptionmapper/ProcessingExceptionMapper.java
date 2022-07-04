@@ -1,6 +1,7 @@
 package com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper;
 
 import java.net.ConnectException;
+import java.net.SocketException;
 
 import com.farawaybr.gatewayapi.jaxrs.dto.ErrorDTO;
 import com.farawaybr.gatewayapi.jaxrs.server.RequestData;
@@ -36,11 +37,10 @@ public class ProcessingExceptionMapper implements ExceptionMapper<ProcessingExce
 			return ((ClientErrorException) exception.getCause()).getResponse();
 		}
 
-		if (exception.getCause() instanceof ConnectException)
-			return Response.status(504).entity(new ErrorDTO(requestData.getEnvironment().name(),
-					"Connection timed out: connect.  Typically, the connection was refused remotely (e.g., no process is listening on the remote address/port).",
-					504)).build();
-
+		if (exception.getCause() instanceof ConnectException || exception.getCause() instanceof SocketException)
+			return Response.status(504)
+					.entity(new ErrorDTO(requestData.getEnvironment().name(), exception.getCause().getMessage(), 504))
+					.build();
 		exception.printStackTrace();
 		return Response.status(500)
 				.entity(new ErrorDTO(requestData.getEnvironment().name(), "Caused by: " + exception.getCause(), 500))

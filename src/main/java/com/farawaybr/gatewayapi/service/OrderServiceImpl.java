@@ -31,6 +31,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
+	@OptionalEmpty404NotFoundJoinPointCut
 	public OrderProtheusPage find(int page, int pageSize, String searchKey) {
 		// TODO Auto-generated method stub
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import jakarta.json.bind.annotation.JsonbProperty;
 
-public abstract class ProtheusPage<T> extends ProtheusResponse{
+public abstract class ProtheusPage<T> extends ProtheusResponse {
 
 	@JsonbProperty("page")
 	private int page;
@@ -16,18 +16,14 @@ public abstract class ProtheusPage<T> extends ProtheusResponse{
 	private int totalItems;
 	private List<T> content;
 
-	
-	
 	public ProtheusPage(List<T> content) {
 		super();
 		this.content = content;
 	}
 
-
 	public List<T> getContent() {
 		return content;
 	}
-
 
 	public int getPage() {
 		return page;
@@ -62,4 +58,7 @@ public abstract class ProtheusPage<T> extends ProtheusResponse{
 		this.totalItems = totalItems;
 	}
 
+	public boolean containsContent() {
+		return content != null && content.size() > 0;
+	}
 }

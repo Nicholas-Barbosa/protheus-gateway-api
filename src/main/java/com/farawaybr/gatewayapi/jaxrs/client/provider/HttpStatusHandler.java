@@ -35,12 +35,10 @@ public class HttpStatusHandler implements ClientResponseFilter {
 
 	@Override
 	public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
-//		String environment = (String) requestContext.getHeaders().get("environment").get(0);
 		String environment = requestData.getEnvironment() != null ? requestData.getEnvironment().name() : null;
 		responseInfo.setProtheusResponse(true);
 		switch (responseContext.getStatus()) {
 		case 404:
-
 			String responseTxt = readResponse(responseContext.getEntityStream());
 			Response responseNotFound = Response.status(404).entity(new ProtheusErrorDTO(environment, responseTxt, 404))
 					.build();
@@ -53,7 +51,8 @@ public class HttpStatusHandler implements ClientResponseFilter {
 			throw new ForbiddenException();
 		case 401:
 			throw new NotAuthorizedException(Response.status(401)
-					.entity(new ProtheusErrorDTO(environment, readResponse(responseContext.getEntityStream()), 401)).build());
+					.entity(new ProtheusErrorDTO(environment, readResponse(responseContext.getEntityStream()), 401))
+					.build());
 		case 409:
 			Response response = Response.status(409)
 					.entity(new ProtheusErrorDTO(environment, readResponse(responseContext.getEntityStream()), 409))

@@ -7,7 +7,7 @@ import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockProtheusWrapperResponseDTO
 
 public interface ProductService {
 
-	ProductStockProtheusWrapperResponseDTO findStock(List<String> products,
-			ProtheusEnvironment enviroment,String token);
+	ProductStockProtheusWrapperResponseDTO findStock(List<String> products, ProtheusEnvironment enviroment,
+			String token);
 
 }

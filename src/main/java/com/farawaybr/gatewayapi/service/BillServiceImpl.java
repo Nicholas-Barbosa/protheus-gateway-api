@@ -7,6 +7,7 @@ import com.farawaybr.gatewayapi.jaxrs.dto.BillsToPayPage;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+
 @ApplicationScoped
 public class BillServiceImpl implements BillService {
 
@@ -17,16 +18,18 @@ public class BillServiceImpl implements BillService {
 	private AuthorizationHeaderAssembler authHeader;
 
 	@Override
-	public BillsToPayPage findBillsToPay(String customerName, String customerStore, int page, int pageSize) {
+	public BillsToPayPage findBillsToPayByCustomer(String customerName, int page, int pageSize) {
 		// TODO Auto-generated method stub
-		String endpoint = "/titles";
-		Map<String, Object> pathParams = null;
-		if (customerName != null && customerStore != null) {
-			endpoint = "/titles/{customerName}/loja/{store}";
-			pathParams = Map.of("customerName", customerName, "store", customerStore);
-		}
-		return restClient.get(endpoint, BillsToPayPage.class, Map.of("page", page, "pageSize", pageSize), pathParams,
-				"application/json", authHeader.assemble());
+		return restClient.get("/titles/{customerName}", BillsToPayPage.class,
+				Map.of("page", page, "pageSize", pageSize), Map.of("customerName", customerName), "application/json",
+				authHeader.assemble());
+	}
+
+	@Override
+	public BillsToPayPage findBillsToPay(int page, int pageSize) {
+		// TODO Auto-generated method stub
+		return restClient.get("/titles", BillsToPayPage.class,
+				Map.of("page", page, "pageSize", pageSize), null, "application/json", authHeader.assemble());
 	}
 
 }

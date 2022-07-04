@@ -3,7 +3,6 @@ package com.farawaybr.gatewayapi.jaxrs.server.resources;
 import java.util.List;
 
 import com.farawaybr.gatewayapi.ProtheusEnvironment;
-import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockProtheusWrapperResponseDTO;
 import com.farawaybr.gatewayapi.service.ProductService;
 import com.farawaybr.gatewayapi.service.ProtheusApiUrlResolver;
 
@@ -30,9 +29,8 @@ public class StockResource {
 	@Produces("application/json")
 	public Response findStock(@QueryParam("environment") String environment, @HeaderParam("Authorization") String token,
 			@QueryParam("products") List<String> products) {
-		ProductStockProtheusWrapperResponseDTO protheusResponse = productService.findStock(products,
-				ProtheusEnvironment.valueOf(environment.toUpperCase()), token);
-		return Response.ok().entity(protheusResponse).build();
+		return Response.ok().entity(productService.findStock(products,
+				ProtheusEnvironment.valueOf(environment.toUpperCase()), token)).build();
 
 	}
 }

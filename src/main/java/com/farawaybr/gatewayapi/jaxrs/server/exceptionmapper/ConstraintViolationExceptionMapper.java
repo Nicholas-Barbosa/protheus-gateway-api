@@ -19,7 +19,7 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
 	@Override
 	public Response toResponse(ConstraintViolationException exception) {
 		// TODO Auto-generated method stub
-		String[] invalidFields = exception.getConstraintViolations().stream().map(c -> c.getMessage())
+		String[] invalidFields = exception.getConstraintViolations().stream().map(c ->c.getMessage())
 				.toArray(s -> new String[s]);
 		ConstraintViolationError error = new ConstraintViolationError(requestData.getEnvironment().name(),
 				"Constraint violation exception", 400, invalidFields);

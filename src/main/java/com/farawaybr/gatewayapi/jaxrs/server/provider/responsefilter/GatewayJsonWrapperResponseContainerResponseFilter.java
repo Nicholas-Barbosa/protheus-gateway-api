@@ -3,8 +3,6 @@ package com.farawaybr.gatewayapi.jaxrs.server.provider.responsefilter;
 import java.io.IOException;
 
 import com.farawaybr.gatewayapi.ProtheusEnvironment;
-import com.farawaybr.gatewayapi.jaxrs.dto.ErrorDTO;
-import com.farawaybr.gatewayapi.jaxrs.dto.ProtheusErrorDTO;
 import com.farawaybr.gatewayapi.jaxrs.dto.ProtheusGatewayResponseDTO;
 import com.farawaybr.gatewayapi.jaxrs.dto.ProtheusResponse;
 import com.farawaybr.gatewayapi.jaxrs.server.RequestData;
@@ -33,8 +31,7 @@ public class GatewayJsonWrapperResponseContainerResponseFilter implements Contai
 		// TODO Auto-generated method stub
 		Object objectEntity = responseContext.getEntity();
 		if (objectEntity != null) {
-			if (objectEntity instanceof ProtheusResponse || responseInfo.isProtheusResponse()
-					&& !(objectEntity instanceof ErrorDTO) && !(objectEntity instanceof ProtheusErrorDTO)) {
+			if (objectEntity instanceof ProtheusResponse || responseInfo.isProtheusResponse()) {
 				ProtheusEnvironment pEnvironment = requestData.getEnvironment();
 				responseContext
 						.setEntity(new ProtheusGatewayResponseDTO(pEnvironment != null ? pEnvironment.name() : null,

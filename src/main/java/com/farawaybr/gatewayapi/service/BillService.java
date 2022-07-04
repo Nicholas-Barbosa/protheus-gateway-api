@@ -4,6 +4,8 @@ import com.farawaybr.gatewayapi.jaxrs.dto.BillsToPayPage;
 
 public interface BillService {
 
-	BillsToPayPage findBillsToPay(String customerName, String customerStore, int page, int pageSize);
+	BillsToPayPage findBillsToPayByCustomer(String customerName, int page, int pageSize);
+
+	BillsToPayPage findBillsToPay(int page, int pageSize);
 
 }
