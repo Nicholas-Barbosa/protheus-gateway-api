@@ -1,11 +1,10 @@
 package com.farawaybr.gatewayapi.service;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import com.farawaybr.gatewayapi.ProtheusEnvironment;
 import com.farawaybr.gatewayapi.jaxrs.client.RestClient;
-import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockProtheusWrapperResponseDTO;
+import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockPage;
 import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockRequestDTO;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -25,18 +24,22 @@ public class ProductServiceImpl implements ProductService {
 	private AuthorizationHeaderAssembler authHeaderAssember;
 
 	@Override
-	public ProductStockProtheusWrapperResponseDTO findStock(List<String> products, ProtheusEnvironment enviroment,
-			String token) {
+	public ProductStockPage findStock(int page, int pageSize, String... products) {
 		// TODO Auto-generated method stub
-		switch (products.size()) {
+		switch (products.length) {
 		case 0:
-			return client.get("/stocksg", ProductStockProtheusWrapperResponseDTO.class, null, null,
-					MediaType.APPLICATION_JSON, authHeaderAssember.assemble());
+			return client.get("/stocksg", ProductStockPage.class, null, null, MediaType.APPLICATION_JSON,
+					authHeaderAssember.assemble());
 
 		default:
-			return client.post("/stocksg", ProductStockProtheusWrapperResponseDTO.class, null, null,
-					products.stream().map(ProductStockRequestDTO::toDto).collect(Collectors.toSet()),
+			ProductStockPage post = client.post("/stocksg", ProductStockPage.class, null, null,
+					Arrays.stream(products).map(ProductStockRequestDTO::toDto).collect(Collectors.toSet()),
 					MediaType.APPLICATION_JSON, authHeaderAssember.assemble());
+			post.setPage(1);
+			post.setPageSize(post.getContent().size());
+			post.setTotalItems(post.getPageSize());
+			post.setTotalPages(1);
+			return post;
 		}
 
 	}

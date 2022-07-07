@@ -31,13 +31,14 @@ C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\ProtheusEnvironment.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\oauthserver\AuthorizationCodeRepository.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\provider\responsefilter\CorsResponseFilter.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\OptionalEmpyt404NotFoundAspect.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\resources\BillResource.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\ProductService.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ProtheusErrorDTO.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\AuthenticationRequestDTO.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\PropertiesResolver.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\ProtheusApiUrlResolver.java
-C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ProductStockProtheusWrapperResponseDTO.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ProductStockPage.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\resources\DanfeResource.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\OrderServiceImpl.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\provider\requestfilter\TokenContainerRequestFilter.java
@@ -74,5 +75,6 @@ C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\OrderService.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\ResponseInfo.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\DanfeServiceImpl.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\OptionalEmpty404NotFoundJoinPointCut.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\exceptionmapper\JsonbExceptionMapper.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\requesthandler\RequestEvent.java

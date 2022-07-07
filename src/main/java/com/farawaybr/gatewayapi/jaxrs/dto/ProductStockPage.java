@@ -1,21 +1,26 @@
 package com.farawaybr.gatewayapi.jaxrs.dto;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
+import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockPage.ProductStockResponseDTO;
+
+import jakarta.json.bind.annotation.JsonbCreator;
 import jakarta.json.bind.annotation.JsonbProperty;
 
-public class ProductStockProtheusWrapperResponseDTO extends ProtheusResponse {
+public class ProductStockPage extends ProtheusPage<ProductStockResponseDTO> {
 
-	private Set<ProductStockResponseDTO> stock;
-
-	public Set<ProductStockResponseDTO> getStock() {
-		return stock;
+	@JsonbCreator
+	public ProductStockPage(@JsonbProperty("stock") List<ProductStockResponseDTO> content) {
+		super(content);
+		// TODO Auto-generated constructor stub
 	}
 
+	@Override
 	@JsonbProperty("stock")
-	public void setStock(Set<ProductStockResponseDTO> stock) {
-		this.stock = stock;
+	public List<ProductStockResponseDTO> getContent() {
+		// TODO Auto-generated method stub
+		return super.getContent();
 	}
 
 	public static class ProductStockResponseDTO implements Serializable {

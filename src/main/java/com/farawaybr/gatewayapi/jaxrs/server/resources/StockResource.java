@@ -8,6 +8,7 @@ import com.farawaybr.gatewayapi.service.ProtheusApiUrlResolver;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.Path;
@@ -27,10 +28,9 @@ public class StockResource {
 
 	@GET
 	@Produces("application/json")
-	public Response findStock(@QueryParam("environment") String environment, @HeaderParam("Authorization") String token,
-			@QueryParam("products") List<String> products) {
-		return Response.ok().entity(productService.findStock(products,
-				ProtheusEnvironment.valueOf(environment.toUpperCase()), token)).build();
+	public Response findStock(@DefaultValue("1") @QueryParam("page") int page,
+			@DefaultValue("10") @QueryParam("pageSize") int pageSize, @QueryParam("products") String... products) {
+		return Response.ok().entity(productService.findStock(page, pageSize, products)).build();
 
 	}
 }
