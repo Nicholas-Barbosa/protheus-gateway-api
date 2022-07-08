@@ -1,6 +1,7 @@
 package com.farawaybr.gatewayapi.service;
 
 import java.util.Arrays;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.farawaybr.gatewayapi.jaxrs.client.RestClient;
@@ -28,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		switch (products.length) {
 		case 0:
-			return client.get("/stocksg", ProductStockPage.class, null, null, MediaType.APPLICATION_JSON,
+			return client.get("/stocksg", ProductStockPage.class, Map.of("pageSize",pageSize,"page",page), null, MediaType.APPLICATION_JSON,
 					authHeaderAssember.assemble());
 
 		default:
