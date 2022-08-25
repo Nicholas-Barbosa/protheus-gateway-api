@@ -1,11 +1,7 @@
 package com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
-import com.farawaybr.gatewayapi.ProtheusEnvironment;
-import com.farawaybr.gatewayapi.jaxrs.dto.InvalidEnvironmentError;
 import com.farawaybr.gatewayapi.jaxrs.server.RequestData;
 
 import jakarta.annotation.Priority;
@@ -13,15 +9,14 @@ import jakarta.inject.Inject;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
+import jakarta.ws.rs.container.PreMatching;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.HttpHeaders;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.ext.Provider;
 
 @Provider
-@Priority(2)
+@Priority(3)
+@PreMatching
 public class RequestDataBootstrapperContainerRequestFilter implements ContainerRequestFilter {
 
 	@Inject
@@ -32,18 +27,10 @@ public class RequestDataBootstrapperContainerRequestFilter implements ContainerR
 
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
-		if (requestContext.getUriInfo().getMatchedURIs().stream().anyMatch(uri -> uri.equalsIgnoreCase("token/code") || uri.equalsIgnoreCase("request")))
+		if (requestContext.getUriInfo().getMatchedURIs().stream()
+				.anyMatch(uri -> uri.equalsIgnoreCase("token/code") || uri.equalsIgnoreCase("request")))
 			return;
-		List<String> environments = requestContext.getUriInfo().getQueryParameters().get("environment");
-		String environment = environments == null ? null : environments.get(0);
-
-		if (environment == null || !Arrays.stream(ProtheusEnvironment.values())
-				.anyMatch(en -> en.toString().equalsIgnoreCase(environment))) {
-			requestContext.abortWith(Response.status(Status.BAD_REQUEST).entity(InvalidEnvironmentError.build())
-					.type(MediaType.APPLICATION_JSON).build());
-			return;
-		}
-		requestData.setEnvironment(ProtheusEnvironment.valueOf(environment.strip().toUpperCase()));
+		requestData.setPath("/" + requestContext.getUriInfo().getPath());
 		requestData.setInitialRequestTime(System.currentTimeMillis());
 		requestData.setRemoteAddr(request.getRemoteAddr());
 		requestData.setToken(requestContext.getHeaderString(HttpHeaders.AUTHORIZATION));

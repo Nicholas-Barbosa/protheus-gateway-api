@@ -14,7 +14,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 
-@Path("order")
+@Path("orders")
 public class OrderResource {
 
 	@Inject

@@ -24,7 +24,7 @@ public class JaxrsClientRequester {
 		try (response) {
 			data = null;
 			return response.readEntity(responseType);
-		}
+		} 
 
 	}
 

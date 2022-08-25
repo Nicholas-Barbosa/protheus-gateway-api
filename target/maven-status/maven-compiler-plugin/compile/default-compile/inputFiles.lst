@@ -2,7 +2,9 @@ C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\domain\AuthorizationCode.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\resources\OrderResource.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ProtheusPage.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\PriceTableService.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\RepresentativeServiceImpl.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\PriceTableServiceImpl.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ProductStockRequestDTO.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\oauthserver\AuthorizationCodeHandler.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\GatewayResponseDTO.java
@@ -21,6 +23,7 @@ C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\client\provider\HttpStatusHandler.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\resources\RequestResource.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\client\RestClient.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\resources\PriceTableResource.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ConstraintViolationError.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\AuthorizationHeaderAssembler.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\oauthserver\TokenResource.java
@@ -40,6 +43,7 @@ C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\ProtheusApiUrlResolver.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\ProductStockPage.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\resources\DanfeResource.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\PriceTable.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\OrderServiceImpl.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\provider\requestfilter\TokenContainerRequestFilter.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\client\JaxrsRequestData.java
@@ -78,3 +82,4 @@ C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\service\OptionalEmpty404NotFoundJoinPointCut.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\exceptionmapper\JsonbExceptionMapper.java
 C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\server\requesthandler\RequestEvent.java
+C:\Users\nicho\OneDrive\Documentos\JavaWorkspace\FarAwayWorkspace\gatewayapi\src\main\java\com\farawaybr\gatewayapi\jaxrs\dto\PriceTableWrapper.java

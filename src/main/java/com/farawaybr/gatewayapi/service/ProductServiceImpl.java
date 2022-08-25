@@ -5,8 +5,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.farawaybr.gatewayapi.jaxrs.client.RestClient;
+import com.farawaybr.gatewayapi.jaxrs.dto.ProductDTO;
 import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockPage;
 import com.farawaybr.gatewayapi.jaxrs.dto.ProductStockRequestDTO;
+import com.farawaybr.gatewayapi.jaxrs.dto.ProductsWrapperDTO;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -29,8 +31,8 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		switch (products.length) {
 		case 0:
-			return client.get("/stocksg", ProductStockPage.class, Map.of("pageSize",pageSize,"page",page), null, MediaType.APPLICATION_JSON,
-					authHeaderAssember.assemble());
+			return client.get("/stocksg", ProductStockPage.class, Map.of("pageSize", pageSize, "page", page), null,
+					MediaType.APPLICATION_JSON, authHeaderAssember.assemble());
 
 		default:
 			ProductStockPage post = client.post("/stocksg", ProductStockPage.class, null, null,
@@ -43,6 +45,12 @@ public class ProductServiceImpl implements ProductService {
 			return post;
 		}
 
+	}
+
+	@Override
+	public ProductDTO[] findByCode(String commercialCode) {
+		return client.get("/products/{code}", ProductsWrapperDTO.class, null, Map.of("code", commercialCode),
+				"application/json", authHeaderAssember.assemble()).getProducts();
 	}
 
 }

@@ -1,8 +1,5 @@
 package com.farawaybr.gatewayapi.jaxrs.server.resources;
 
-import java.util.List;
-
-import com.farawaybr.gatewayapi.ProtheusEnvironment;
 import com.farawaybr.gatewayapi.service.ProductService;
 import com.farawaybr.gatewayapi.service.ProtheusApiUrlResolver;
 
@@ -10,7 +7,6 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
-import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;

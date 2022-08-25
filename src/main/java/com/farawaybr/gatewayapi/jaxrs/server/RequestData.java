@@ -9,7 +9,7 @@ public class RequestData {
 
 	private ProtheusEnvironment environment;
 	private long initialRequestTime, latency;
-	private String remoteAddr, token;
+	private String remoteAddr, token, path;
 
 	public ProtheusEnvironment getEnvironment() {
 		return environment;
@@ -47,5 +47,13 @@ public class RequestData {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 }

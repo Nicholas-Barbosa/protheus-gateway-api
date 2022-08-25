@@ -21,9 +21,11 @@ package com.farawaybr.gatewayapi.jaxrs.server.config;
 import java.util.Set;
 
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.ConstraintViolationExceptionMapper;
+import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.RequestedHttpNotFoundExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.JsonbExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.exceptionmapper.ProcessingExceptionMapper;
 import com.farawaybr.gatewayapi.jaxrs.server.oauthserver.TokenResource;
+import com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter.EnvironmentValidatorContainerRequestFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter.PreflightContainerRequestFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter.RequestDataBootstrapperContainerRequestFilter;
 import com.farawaybr.gatewayapi.jaxrs.server.provider.requestfilter.TokenContainerRequestFilter;
@@ -32,6 +34,8 @@ import com.farawaybr.gatewayapi.jaxrs.server.provider.responsefilter.GatewayJson
 import com.farawaybr.gatewayapi.jaxrs.server.resources.BillResource;
 import com.farawaybr.gatewayapi.jaxrs.server.resources.DanfeResource;
 import com.farawaybr.gatewayapi.jaxrs.server.resources.OrderResource;
+import com.farawaybr.gatewayapi.jaxrs.server.resources.PriceTableResource;
+import com.farawaybr.gatewayapi.jaxrs.server.resources.ProductResource;
 import com.farawaybr.gatewayapi.jaxrs.server.resources.RepresentativeResource;
 import com.farawaybr.gatewayapi.jaxrs.server.resources.RequestResource;
 import com.farawaybr.gatewayapi.jaxrs.server.resources.StockResource;
@@ -49,6 +53,8 @@ public class JaxrsActivator extends Application {
 				GatewayJsonWrapperResponseContainerResponseFilter.class, TokenContainerRequestFilter.class,
 				StockResource.class, JsonbExceptionMapper.class, ProcessingExceptionMapper.class, TokenResource.class,
 				PreflightContainerRequestFilter.class, CorsResponseFilter.class, RepresentativeResource.class,
-				OrderResource.class, RequestResource.class, DanfeResource.class,BillResource.class);
+				OrderResource.class, RequestResource.class, DanfeResource.class, BillResource.class,
+				PriceTableResource.class, ProductResource.class, RequestedHttpNotFoundExceptionMapper.class,
+				EnvironmentValidatorContainerRequestFilter.class);
 	}
 }

@@ -1,6 +1,7 @@
 package com.farawaybr.gatewayapi.jaxrs.client;
 
 import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
 import com.farawaybr.gatewayapi.jaxrs.client.provider.HttpStatusHandler;
 
@@ -25,7 +26,9 @@ public class JaxrsClientSource implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		client = ClientBuilder.newBuilder().register(HttpStatusHandler.class).build();
+		client = ClientBuilder.newBuilder().register(HttpStatusHandler.class).connectTimeout(10, TimeUnit.SECONDS)
+				.readTimeout(50, TimeUnit.SECONDS).build();
+
 	}
 
 	@PreDestroy

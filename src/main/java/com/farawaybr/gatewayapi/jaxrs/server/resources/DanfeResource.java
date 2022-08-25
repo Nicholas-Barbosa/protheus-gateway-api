@@ -10,7 +10,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 
-@Path("danfe")
+@Path("danfes")
 public class DanfeResource {
 
 	@Inject
