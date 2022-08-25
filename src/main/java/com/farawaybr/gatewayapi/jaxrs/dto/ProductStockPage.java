@@ -29,7 +29,8 @@ public class ProductStockPage extends ProtheusPage<ProductStockResponseDTO> {
 		 */
 		private static final long serialVersionUID = 1L;
 		private String productErp, line, product, type, description;
-		private int avaliable, openOrder, multipleCdBar, stockBalance, boxQuantity, amountBurden;
+		private int avaliable;
+		private Integer openOrder, multipleCdBar, stockBalance, boxQuantity, amountBurden;
 
 		@JsonbProperty("product_erp")
 		public String getProductErp() {
@@ -89,7 +90,7 @@ public class ProductStockPage extends ProtheusPage<ProductStockResponseDTO> {
 		}
 
 		@JsonbProperty("open_order")
-		public int getOpenOrder() {
+		public Integer getOpenOrder() {
 			return openOrder;
 		}
 
@@ -99,7 +100,7 @@ public class ProductStockPage extends ProtheusPage<ProductStockResponseDTO> {
 		}
 
 		@JsonbProperty("multiple_cd_bar")
-		public int getMultipleCdBar() {
+		public Integer getMultipleCdBar() {
 			return multipleCdBar;
 		}
 
@@ -109,7 +110,7 @@ public class ProductStockPage extends ProtheusPage<ProductStockResponseDTO> {
 		}
 
 		@JsonbProperty("stock_balance")
-		public int getStockBalance() {
+		public Integer getStockBalance() {
 			return stockBalance;
 		}
 
@@ -119,7 +120,7 @@ public class ProductStockPage extends ProtheusPage<ProductStockResponseDTO> {
 		}
 
 		@JsonbProperty("box_quantity")
-		public int getBoxQuantity() {
+		public Integer getBoxQuantity() {
 			return boxQuantity;
 		}
 
@@ -129,7 +130,7 @@ public class ProductStockPage extends ProtheusPage<ProductStockResponseDTO> {
 		}
 
 		@JsonbProperty("amount_burden")
-		public int getAmountBurden() {
+		public Integer getAmountBurden() {
 			return amountBurden;
 		}
 

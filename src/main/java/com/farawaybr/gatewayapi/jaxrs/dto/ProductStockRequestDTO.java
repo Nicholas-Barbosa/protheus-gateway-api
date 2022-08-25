@@ -15,6 +15,10 @@ public class ProductStockRequestDTO implements Serializable {
 	@NotBlank(message = "product attribute cannot be null or blank!")
 	public String product;
 
+	public ProductStockRequestDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public ProductStockRequestDTO(String product2) {
 		this.product = product2;
 	}

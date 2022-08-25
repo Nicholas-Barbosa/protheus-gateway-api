@@ -38,11 +38,22 @@ public class ProductServiceImpl implements ProductService {
 			ProductStockPage post = client.post("/stocksg", ProductStockPage.class, null, null,
 					Arrays.stream(products).map(ProductStockRequestDTO::toDto).collect(Collectors.toSet()),
 					MediaType.APPLICATION_JSON, authHeaderAssember.assemble());
-			post.setPage(1);
-			post.setPageSize(post.getContent().size());
-			post.setTotalItems(post.getPageSize());
-			post.setTotalPages(1);
 			return post;
+		}
+
+	}
+
+	@Override
+	public ProductStockPage findSimplifiedStock(ProductStockRequestDTO... products) {
+		// TODO Auto-generated method stub
+		switch (products.length) {
+		case 0:
+			return client.get("/stock", ProductStockPage.class, null, null, MediaType.APPLICATION_JSON,
+					authHeaderAssember.assemble());
+
+		default:
+			return client.post("/stock", ProductStockPage.class, null, null, products, MediaType.APPLICATION_JSON,
+					authHeaderAssember.assemble());
 		}
 
 	}
